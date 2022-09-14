@@ -2,7 +2,6 @@ import { FC } from 'react';
 
 import { useGetPokemonListQuery, IPokemon } from 'api';
 import CardList from 'components/CardList';
-import Pagination from 'components/Pagination';
 import { useAppSelector } from 'store/hooks';
 
 export const Main: FC = () => {
@@ -19,7 +18,6 @@ export const Main: FC = () => {
   return (
     <main>
       <CardList pokemonList={list} />
-      <Pagination />
     </main>
   );
 };
