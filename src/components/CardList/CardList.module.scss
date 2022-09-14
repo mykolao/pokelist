@@ -1,5 +1,16 @@
-.cardList {
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.container {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .list {
+    padding: 0;
+    margin: 0;
+    width: 900px;
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
 }

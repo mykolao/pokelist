@@ -9,11 +9,12 @@ interface Props {
   pokemonList: IPokemon[];
 }
 export const CardList: FC<Props> = ({ pokemonList }) => (
-  <ul className={styles.cardList}>
-    {pokemonList.map(({ name }) => (
-      <Card key={name} name={name} />
-    ))}
-  </ul>
+  <div className={styles.container}>
+    <ul className={styles.list}>
+      {pokemonList.map(({ name }) => (
+        <Card key={name} name={name} />
+      ))}
+    </ul>
     <Pagination />
   </div>
 );
