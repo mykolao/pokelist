@@ -18,7 +18,7 @@ export const Card: FC<Props> = ({ name }) => {
 
   return (
     <li>
-      <CardImage name={name} sprites={sprites} />
+      {sprites.front_default ? <CardImage name={name} sprites={sprites} /> : <p>?</p>}
       <p>{pokemon!.name}</p>
     </li>
   );

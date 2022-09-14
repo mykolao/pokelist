@@ -57,8 +57,12 @@ export const pokemonApi = createApi({
         const frontImgURL = details.sprites.front_default;
         const backImgURL = details.sprites.back_default;
 
+        if (!frontImgURL && !backImgURL) {
+          return details;
+        }
+
         const front64 = await fetchBase64(frontImgURL);
-        const back64 = await fetchBase64(backImgURL);
+        const back64 = backImgURL ? await fetchBase64(backImgURL) : front64;
 
         return {
           ...details,
