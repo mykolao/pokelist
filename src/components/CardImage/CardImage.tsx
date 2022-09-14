@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 
 import { IPokemonDetails } from 'api';
+import styles from 'components/CardImage/CardImage.module.scss';
 
 interface Props extends Pick<IPokemonDetails, 'name' | 'sprites'> {}
 
@@ -24,6 +25,7 @@ export const CardImage: FC<Props> = ({ name, sprites }) => {
 
   return (
     <img
+      className={styles.image}
       src={isHovered ? back : front}
       alt={name}
       onMouseEnter={handleMouseEnter}
