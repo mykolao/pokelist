@@ -11,7 +11,7 @@ export const Card: FC<Props> = ({ name }) => {
   const { data: pokemon, isLoading } = useGetPokemonByNameQuery(name);
 
   if (isLoading) {
-    return <>Placeholder</>;
+    return <li>Placeholder</li>;
   }
 
   const { sprites } = pokemon!;
