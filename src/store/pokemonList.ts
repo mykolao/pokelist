@@ -57,8 +57,6 @@ const slice = createSlice({
     nextPage: state => {
       const maxPageNumber = Math.ceil(state.filteredList.length / state.pageSize);
 
-      console.log(state.pageSize);
-
       if (state.pageNumber < maxPageNumber) {
         state.pageNumber += 1;
         state.currentPageList = calculateCurrentPageList(state);
