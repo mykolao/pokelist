@@ -15,7 +15,7 @@ const initialState: PokemonListState = {
   fullList: [],
   searchValue: '',
   filteredList: [],
-  pageSize: 12,
+  pageSize: 20,
   pageNumber: 0,
   currentPageList: [],
 };
@@ -59,6 +59,13 @@ const slice = createSlice({
 
       if (state.pageNumber < maxPageNumber) {
         state.pageNumber += 1;
+        state.currentPageList = calculateCurrentPageList(state);
+      }
+    },
+
+    previousPage: state => {
+      if (state.pageNumber > 0) {
+        state.pageNumber -= 1;
         state.currentPageList = calculateCurrentPageList(state);
       }
     },

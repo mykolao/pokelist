@@ -4,10 +4,10 @@ import { PaginationComponent } from 'components/Pagination/Pagination.component'
 import { useAppDispatch, useAppSelector } from 'store/hooks';
 import { pokemonListActions, PokemonListState } from 'store/pokemonList';
 
-const { nextPage } = pokemonListActions;
+const { nextPage, previousPage } = pokemonListActions;
 
 export const Pagination: FC = () => {
-  const { filteredList, pageNumber } = useAppSelector<PokemonListState>(
+  const { filteredList, pageNumber, pageSize } = useAppSelector<PokemonListState>(
     ({ pokemonList }) => pokemonList,
   );
 
@@ -15,16 +15,18 @@ export const Pagination: FC = () => {
 
   const totalCount = filteredList.length;
 
+  const isLastPage = (pageNumber + 1) * pageSize > totalCount;
+
   const handleNextPage = useCallback(() => dispatch(nextPage()), [nextPage]);
-  const handlePrevoiusPage = useCallback(() => {}, []);
+  const handlePreviousPage = useCallback(() => dispatch(previousPage()), [previousPage]);
 
   return (
     <PaginationComponent
       totalItemCount={totalCount}
       currentPage={pageNumber}
-      isLastPage={false}
+      isLastPage={isLastPage}
       onNext={handleNextPage}
-      onPrevious={handlePrevoiusPage}
+      onPrevious={handlePreviousPage}
     />
   );
 };
