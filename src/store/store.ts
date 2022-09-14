@@ -10,7 +10,7 @@ const store = configureStore({
     pokemonList: pokemonListReducer,
   },
   middleware: getDefaultMiddleware =>
-    getDefaultMiddleware().concat(pokemonApi.middleware),
+    getDefaultMiddleware({ serializableCheck: false }).concat(pokemonApi.middleware),
 });
 
 setupListeners(store.dispatch);
