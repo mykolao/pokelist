@@ -4,12 +4,14 @@
   flex-direction: column;
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 12px;
 
   .list {
     padding: 0;
     margin: 0;
     list-style: none;
     display: grid;
+    gap: 8px;
     grid-template-columns: repeat(6, 1fr);
     grid-template-rows: repeat(3, 1fr);
   }

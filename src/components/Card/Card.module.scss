@@ -1,0 +1,54 @@
+.static {
+  background-color: #010101;
+  border-radius: 6px;
+
+  &:hover {
+    box-shadow: 4px 6px 15px 0px rgba(1,1,1,0.36);
+  }
+}
+
+.name {
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #2cb67d;
+  margin: 0;
+  padding: 12px 0;
+}
+
+.flippable {
+  $transition-time: 0.35s;
+
+  position: relative;
+
+  background-color: #010101;
+  border-radius: 6px;
+
+  &:hover {
+    box-shadow: 4px 6px 15px 0px rgba(1,1,1,0.36);
+
+    .front {
+      transform: rotateY(-180deg);
+    }
+
+    .back {
+      transform: rotateY(-360deg);
+    }
+  }
+
+  .front {
+    transition: transform $transition-time;
+    backface-visibility: hidden;
+  }
+
+  .back {
+    transform: rotateY(-180deg);
+    transition: transform $transition-time;
+    backface-visibility: hidden;
+
+    position: absolute;
+    top: 0;
+
+    width: 100%;
+  }
+}
