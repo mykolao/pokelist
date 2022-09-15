@@ -15,7 +15,7 @@ const initialState: PokemonListState = {
   fullList: [],
   searchValue: '',
   filteredList: [],
-  pageSize: 20,
+  pageSize: 18,
   pageNumber: 0,
   currentPageList: [],
 };
