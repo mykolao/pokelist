@@ -1,6 +1,7 @@
 import { FC, useState } from 'react';
 
 import { IPokemonDetails } from 'api';
+import pokeball from 'assets/pokeball.svg';
 import styles from 'components/CardImage/CardImage.module.scss';
 
 interface Props extends Pick<IPokemonDetails, 'name' | 'sprites'> {}
@@ -22,6 +23,10 @@ export const CardImage: FC<Props> = ({ name, sprites }) => {
       setIsHovered(false);
     }
   };
+
+  if (!front) {
+    return <img className={styles.image} src={pokeball} alt="unknown pokemon" />;
+  }
 
   return (
     <img
