@@ -52,3 +52,18 @@
     width: 100%;
   }
 }
+
+@keyframes rotate {
+  0% {
+    transform: rotate(-180deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+.rotating {
+  img {
+    animation: rotate 0.8s infinite cubic-bezier(0.22, 0.75, 1, 1);
+  }
+}

@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { FlippingCard } from './FlippingCard';
+import { LoadingCard } from './LoadingCard';
 import { StaticCard } from './StaticCard';
 
 import { useGetPokemonByNameQuery } from 'api';
@@ -13,7 +14,7 @@ export const Card: FC<Props> = ({ name }) => {
   const { data: pokemon, isLoading } = useGetPokemonByNameQuery(name);
 
   if (isLoading) {
-    return <li>Placeholder</li>;
+    return <LoadingCard />;
   }
 
   const { sprites } = pokemon!;
