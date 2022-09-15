@@ -1,20 +1,23 @@
 import { FC } from 'react';
 
-import { IPokemon } from 'api';
-import Card from 'components/Card';
-import styles from 'components/CardList/CardList.module.scss';
-import Pagination from 'components/Pagination';
+import { useGetPokemonListQuery, IPokemon } from 'api';
+import { CardListComponent } from 'components/CardList/CardList.component';
+import { useAppSelector } from 'store/hooks';
 
-interface Props {
-  pokemonList: IPokemon[];
-}
-export const CardList: FC<Props> = ({ pokemonList }) => (
-  <div className={styles.container}>
-    <Pagination />
-    <ul className={styles.list}>
-      {pokemonList.map(({ name }) => (
-        <Card key={name} name={name} />
-      ))}
-    </ul>
-  </div>
-);
+export const CardList: FC = () => {
+  const { isSuccess } = useGetPokemonListQuery();
+
+  const list = useAppSelector<IPokemon[]>(
+    ({ pokemonList: { currentPageList } }) => currentPageList,
+  );
+
+  if (!isSuccess) {
+    return <main>Waiting</main>;
+  }
+
+  return (
+    <main>
+      <CardListComponent pokemonList={list} />
+    </main>
+  );
+};
