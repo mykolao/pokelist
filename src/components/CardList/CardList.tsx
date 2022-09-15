@@ -10,11 +10,11 @@ interface Props {
 }
 export const CardList: FC<Props> = ({ pokemonList }) => (
   <div className={styles.container}>
+    <Pagination />
     <ul className={styles.list}>
       {pokemonList.map(({ name }) => (
         <Card key={name} name={name} />
       ))}
     </ul>
-    <Pagination />
   </div>
 );
