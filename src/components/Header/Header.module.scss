@@ -1,5 +1,10 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.container {
+  header {
+    padding: 18px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 }
