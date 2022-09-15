@@ -2,12 +2,12 @@
 
   display: flex;
   flex-direction: column;
-  align-items: center;
+  max-width: 1000px;
+  margin: 0 auto;
 
   .list {
     padding: 0;
     margin: 0;
-    width: 900px;
     list-style: none;
     display: grid;
     grid-template-columns: repeat(6, 1fr);
